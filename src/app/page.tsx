@@ -1,101 +1,81 @@
-import Image from "next/image";
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import  destinations  from './dummyData/dummyData.json';
 
 export default function Home() {
+  const topDestinations = destinations.slice(1, 7);
+
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <main>
+      <div className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src="/assets/images/homepage.jpg"
+          alt="Nepal Himalayas"
+          fill
+          className="object-cover scale-105 animate-slow-zoom"
           priority
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70" />
+        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-up bg-gradient-to-r from-[#DC143C] to-[#d6b5b5] bg-clip-text text-transparent">
+            Welcome to Nepal
+          </h1>
+          <p className="text-xl md:text-2xl mb-12 text-gray-200 animate-fade-up animation-delay-200">
+            Discover the land of Himalayas, ancient temples, and rich culture
+          </p>
+          <Link
+            href="/Destinations"
+            className="group inline-flex items-center bg-white text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gradient-to-r from-[#003893] to-[#DC143C] hover:text-white transition-all duration-300 animate-fade-up animation-delay-400 shadow-xl hover:shadow-blue-500/25"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            Explore Destinations
+            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+
+      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center space-y-4 mb-16">
+          <h2 className="text-4xl font-bold">
+            Popular Destinations
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Explore our handpicked selection of must-visit locations across Nepal
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {topDestinations.map((destination) => (
+            <Link
+              key={destination.id}
+              href={`/Destinations/${destination.id}`}
+              className="group"
+            >
+              <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10">
+                <Image
+                  src={destination.images[0]}
+                  alt={destination.name}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                <div className="absolute inset-0 flex flex-col justify-end p-8">
+                  <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-2xl font-semibold text-white mb-3">
+                      {destination.name}
+                    </h3>
+                    <p className="text-gray-300 mb-4">{destination.region}</p>
+                    <div className="inline-flex items-center text-blue-400 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      Explore More <ArrowRight className="ml-2 h-4 w-4" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
