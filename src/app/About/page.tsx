@@ -23,10 +23,10 @@ export default function AboutPage() {
               <div className="h-1 w-20 bg-blue-600 rounded-full"></div>
             </div>
             <p className="text-gray-400 leading-relaxed">
-              Nepal, a country nestled in the heart of the Himalayas, boasts a rich history dating back thousands of years. As the birthplace of Buddha and home to ancient Hindu traditions, Nepal's cultural heritage is as diverse as its landscape.
+              Nepal, a country nestled in the heart of the Himalayas, boasts a rich history dating back thousands of years. As the birthplace of Buddha and home to ancient Hindu traditions, Nepal&apos;s cultural heritage is as diverse as its landscape.
             </p>
             <p className="text-gray-400 leading-relaxed">
-              The country's unique blend of Hindu and Buddhist traditions has created a tapestry of festivals, architecture, and art that continues to captivate visitors from around the world.
+              The country&apos;s unique blend of Hindu and Buddhist traditions has created a tapestry of festivals, architecture, and art that continues to captivate visitors from around the world.
             </p>
           </div>
           <div className="relative h-[500px] group">
@@ -58,7 +58,7 @@ export default function AboutPage() {
               <div className="h-1 w-20 bg-blue-600 rounded-full"></div>
             </div>
             <p className="text-gray-400 leading-relaxed">
-              From the towering peaks of the Himalayas to the subtropical forests of the Terai, Nepal's geography is incredibly diverse. The country is home to eight of the world's ten tallest mountains, including Mount Everest.
+              From the towering peaks of the Himalayas to the subtropical forests of the Terai, Nepal&apos;s geography is incredibly diverse. The country is home to eight of the world&apos;s ten tallest mountains, including Mount Everest.
             </p>
             <p className="text-gray-400 leading-relaxed">
               This dramatic variation in altitude creates distinct ecological zones, each with its own unique flora, fauna, and climate, making Nepal a paradise for nature enthusiasts and adventure seekers.

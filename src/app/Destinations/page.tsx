@@ -1,32 +1,35 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import DestinationCard from "../components/common/cards/destinationCard";
-import destinations from '../dummyData/dummyData.json';
+import destinations from "../dummyData/dummyData.json";
 
 export default function DestinationPage() {
   const [filters, setFilters] = useState({
-    region: '',
-    search: '',
-    topDestinations: false
+    region: "",
+    search: "",
+    topDestinations: false,
   });
 
-  const regions = [...new Set(destinations.map(dest => dest.region))];
-  
-  const filteredDestinations = destinations.filter(dest => {
+  const regions = [...new Set(destinations.map((dest) => dest.region))];
+
+  const filteredDestinations = destinations.filter((dest) => {
     const matchesRegion = !filters.region || dest.region === filters.region;
-    const matchesSearch = !filters.search || 
+    const matchesSearch =
+      !filters.search ||
       dest.name.toLowerCase().includes(filters.search.toLowerCase()) ||
       dest.description.toLowerCase().includes(filters.search.toLowerCase());
     const matchesTop = !filters.topDestinations || dest.topDestination;
-    
+
     return matchesRegion && matchesSearch && matchesTop;
   });
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4 text-white">Discover Amazing Destinations</h1>
+        <h1 className="text-4xl font-bold mb-4 text-white">
+          Discover Amazing Destinations
+        </h1>
         <p className="text-lg text-gray-300 max-w-2xl mx-auto">
           Explore our curated collection of breathtaking locations around Nepal
         </p>
@@ -39,26 +42,33 @@ export default function DestinationPage() {
             placeholder="Search destinations..."
             className="px-4 py-2 rounded-lg w-full max-w-xs bg-gray-900 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-600"
             value={filters.search}
-            onChange={e => setFilters({...filters, search: e.target.value})}
+            onChange={(e) => setFilters({ ...filters, search: e.target.value })}
           />
-          
+
           <select
             value={filters.region}
-            onChange={e => setFilters({...filters, region: e.target.value})}
+            onChange={(e) => setFilters({ ...filters, region: e.target.value })}
             className="px-4 py-2 rounded-lg w-full max-w-xs bg-gray-900 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-600"
           >
             <option value="">All Regions</option>
-            {regions.map(region => (
-              <option key={region} value={region}>{region}</option>
+            {regions.map((region) => (
+              <option key={region} value={region}>
+                {region}
+              </option>
             ))}
           </select>
 
           <button
-            onClick={() => setFilters({...filters, topDestinations: !filters.topDestinations})}
+            onClick={() =>
+              setFilters({
+                ...filters,
+                topDestinations: !filters.topDestinations,
+              })
+            }
             className={`px-4 py-2 rounded-lg ml-auto ${
-              filters.topDestinations 
-                ? 'bg-gradient-to-r from-[#003893] to-[#DC143C]' 
-                : 'bg-gray-800 border border-gray-700 text-white'
+              filters.topDestinations
+                ? "bg-gradient-to-r from-[#003893] to-[#DC143C]"
+                : "bg-gray-800 border border-gray-700 text-white"
             }`}
           >
             Top Destinations Only
@@ -85,6 +95,7 @@ export default function DestinationPage() {
               activities={[]}
               popularity={0}
               userReviews={[]}
+              type={""}
             />
           ))}
         </div>

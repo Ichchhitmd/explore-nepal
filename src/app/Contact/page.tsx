@@ -9,7 +9,7 @@ export default function ContactPage() {
       <div className="text-center mb-16">
         <h1 className="text-4xl font-bold text-white mb-4">Contact Us</h1>
         <p className="text-gray-400 max-w-2xl mx-auto">
-          Have questions about exploring Nepal? We're here to help you plan your perfect adventure.
+          Have questions about exploring Nepal? We&apos;re here to help you plan your perfect adventure.
         </p>
       </div>
       
